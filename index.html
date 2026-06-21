@@ -141,7 +141,30 @@ if(!aceito){
 alert("Você precisa aceitar os termos do contrato.");
 return;
 }
+document.getElementById("loading").style.display = "flex";
 
+let etapas = [
+"Processando dados...",
+"Validando contrato...",
+"Gerando registro...",
+"Aplicando assinatura...",
+"Finalizando sistema..."
+];
+
+let etapaAtual = 0;
+
+let animacao = setInterval(() => {
+
+document.getElementById("textoLoading").innerText =
+etapas[etapaAtual];
+
+etapaAtual++;
+
+if(etapaAtual >= etapas.length){
+clearInterval(animacao);
+}
+
+}, 700);
 let protocolo = Math.floor(100000 + Math.random()*900000);
 
 let agora = new Date();
@@ -169,8 +192,12 @@ let mensagem = `• CONTRATO DE COMPRA FORMALIZADO N° ${protocolo}
 
 • STATUS: CONCLUSÃO PENDENTE`;
 
+setTimeout(() => {
+
 window.location.href =
 'https://wa.me/558582087849?text=' + encodeURIComponent(mensagem);
+
+}, 4000);
 
 }
 </script>
