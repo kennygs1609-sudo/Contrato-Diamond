@@ -112,15 +112,49 @@ A confirmação eletrônica implica aceitação integral dos termos deste contra
 
 <script>
 function finalizar(){
-let nome=document.getElementById('nome').value;
 
-let mensagem=
-'Contrato finalizado%0ACliente: '+nome;
+let nome = document.getElementById('nome').value;
+let aceito = document.getElementById('aceito').checked;
 
-window.location.href=
-'https://wa.me/558582087849?text='+mensagem;
+if(!nome){
+alert("Preencha seu nome completo.");
+return;
+}
+
+if(!aceito){
+alert("Você precisa aceitar os termos do contrato.");
+return;
+}
+
+let protocolo = Math.floor(100000 + Math.random()*900000);
+
+let agora = new Date();
+
+let data = agora.toLocaleDateString('pt-BR');
+let hora = agora.toLocaleTimeString('pt-BR');
+
+let mensagem = `• CONTRATO DE COMPRA FORMALIZADO N° ${protocolo}
+
+• STATUS DO SISTEMA: CONTRATO REGISTRADO E VALIDADO
+• OPERAÇÃO: AUTENTICADA COM SUCESSO
+• TITULAR: IDENTIFICADO E CONFIRMADO
+
+• Cliente: ${nome}
+• Data: ${data}
+• Hora: ${hora}
+
+• Protocolo: ${protocolo}
+
+• ETAPA FINAL DE COMPRA: CONSISTE SOMENTE NO PAGAMENTO DA ENTRADA
+
+• Os boletos serão encaminhados ao e-mail do titular em formato PDF, juntamente com a documentação do pedido
+
+• A documentação do pedido poderá ser disponibilizada em formato digital e físico conforme processo interno de expedição
+
+• STATUS: CONCLUSÃO PENDENTE`;
+
+window.location.href =
+'https://wa.me/558582087849?text=' + encodeURIComponent(mensagem);
+
 }
 </script>
-
-</body>
-</html>
