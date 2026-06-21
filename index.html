@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<title>Diamante Connect</title>
+<meta charset="UTF-8">
+<title>Contrato - Diamante Connect</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#fff;
+color:#333;
+padding:20px;
+}
+
+.container{
+max-width:750px;
+margin:auto;
+}
+
+h1{
+text-align:center;
+color:#0A4D9C;
+}
+
+.empresa{
+border-bottom:1px solid #ccc;
+padding-bottom:10px;
+margin-bottom:20px;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#0A4D9C;
+color:white;
+font-weight:bold;
+margin-top:15px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+box-sizing:border-box;
+}
+
+.box{
+margin-top:20px;
+}
+</style>
 </head>
+
 <body>
-<h1>Diamante Connect</h1>
-<p>Contrato em atualização.</p>
+
+<div class="container">
+
+<h1>CONTRATO DE COMPRA E VENDA</h1>
+
+<div class="empresa">
+<b>DIAMANTE CONNECT</b><br>
+CNPJ: 45.145.228/0001-08<br>
+WhatsApp: +55 85 8208-7849<br>
+Localização: São Paulo - SP<br>
+Instagram: @DiamanteConnect
+</div>
+
+<p>Contrato em configuração.</p>
+
+<div class="box">
+<input type="text" placeholder="Nome completo" id="nome">
+<button onclick="finalizar()">FINALIZAR CONTRATO</button>
+</div>
+
+</div>
+
+<script>
+function finalizar(){
+let nome=document.getElementById('nome').value;
+
+let mensagem=
+'Contrato finalizado%0ACliente: '+nome;
+
+window.location.href=
+'https://wa.me/558582087849?text='+mensagem;
+}
+</script>
+
 </body>
 </html>
